@@ -32,11 +32,15 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh &
     bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda && \
     rm Miniconda3-latest-Linux-x86_64.sh
 
-# install singularity
-RUN yum update -y && \
-    yum install -y epel-release && \
-    yum update -y && \
-    yum install -y singularity
+# add singularity repository
+RUN yum -y install epel-release
+RUN yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+RUN yum install -y singularity
+## install singularity
+#RUN yum update -y && \
+#    yum install -y epel-release && \
+#    yum update -y && \
+#    yum install -y singularity
 
 RUN pip install ipython
 WORKDIR /code
