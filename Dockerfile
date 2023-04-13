@@ -34,7 +34,8 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh &
 
 # add singularity repository
 RUN yum -y install epel-release
-RUN yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+RUN wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+RUN yum -y install epel-release-latest-7.noarch.rpm
 RUN yum install -y singularity
 ## install singularity
 #RUN yum update -y && \
